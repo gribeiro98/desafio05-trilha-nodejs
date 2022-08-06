@@ -44,9 +44,7 @@ class UsersRepository implements IUsersRepository {
   }
 
   findByEmail(email: string): User | undefined {
-    const user = this.users.find(
-      (user) => user.email.toLowerCase() === email.toLowerCase()
-    );
+    const user = this.users.find((user) => user.email === email);
 
     if (user) {
       return user;

@@ -1,3 +1,94 @@
 {
-  
+  "openapi":"3.0.0",
+  "info":{
+     "title":"Desafio - Documentando com Swagger",
+     "description":"Documentação ref. ao desafio da trilha NodeJS - Documentando com Swagger",
+     "version":"1.0.0"
+  },
+  "paths":{
+     "/users":{
+        "post":{
+           "tags":[
+              "users"
+           ],
+           "summary":"Cria um novo usuário",
+           "requestBody":{
+              "required":true,
+              "content":{
+                 "application/json":{
+                    "schema":{
+                       "type":"object",
+                       "properties":{
+                          "name":{
+                             "type":"string"
+                          },
+                          "email":{
+                             "type":"string"
+                          }
+                       },
+                       "example":{
+                          "name":"user name sample",
+                          "description":"user email sample"
+                       }
+                    }
+                 }
+              }
+           },
+           "responses":{
+              "201":{
+                 "description":"Usuário criado com sucesso",
+                 "content":{
+                    "application/json":{
+                       "schema":{
+                          "type":"object",
+                          "properties":{
+                             "id":{
+                                "type":"string",
+                                "example":"26ddc3db-7ce9-4e5b-b1a6-5fdd62cf13d4"
+                             },
+                             "admin":{
+                                "type":"boolean",
+                                "example":"true"
+                             },
+                             "name":{
+                                "type":"string",
+                                "example":"Gabriel"
+                             },
+                             "email":{
+                                "type":"string",
+                                "example":"exemplo@email.com"
+                             },
+                             "created_at":{
+                                "type":"string",
+                                "example":"2022-08-06T12:02:32.410Z"
+                             },
+                             "update_at":{
+                                "type":"string",
+                                "example":"2022-08-06T12:02:32.410Z"
+                             }
+                          }
+                       }
+                    }
+                 }
+              },
+              "400":{
+                 "description":"Usuário já cadastrado",
+                 "content":{
+                    "application/json":{
+                       "schema":{
+                          "type":"object",
+                          "properties":{
+                             "error":{
+                                "type":"string",
+                                "example":"User already exists"
+                             }
+                          }
+                       }
+                    }
+                 }
+              }
+           }
+        }
+     }
+  }
 }
